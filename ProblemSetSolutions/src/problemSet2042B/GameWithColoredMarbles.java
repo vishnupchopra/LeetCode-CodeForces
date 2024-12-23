@@ -16,21 +16,33 @@ public class GameWithColoredMarbles {
 			while(n!=0) {
 				int Marble = Integer.parseInt(scanner.next());
 				if(Marbles.containsKey(Marble)) {
-					Marbles.put(Marble, Marbles.get(Marble)+1);
+					Marbles.put(Marble,2);
 				}else {
 					Marbles.put(Marble, 1);
 				}
 				--n;
 			}
+//			System.out.println(Marbles);
+			int spc=0;
 			for(int key : Marbles.keySet()) {
 				if(Marbles.get(key)==1) {
-					scoreAlice=scoreAlice+2;
+					spc++;
+//					System.out.println("1");
 //					Marbles.remove(key);
-				}else {
-					scoreAlice=scoreAlice+(Math.round(Marbles.get(key)/2)+1);
+				}else{
+					scoreAlice=scoreAlice+1;
+//					if(Marbles.get(key)%2!=0) {
+//						scoreAlice=scoreAlice+((Math.round(Marbles.get(key)/2)+1));
+//					}
+//					else {
+//						scoreAlice=scoreAlice+((Math.round(Marbles.get(key)/2)));
+//					}
+//					System.out.print("else");
+//					System.out.println(scoreAlice);
 //					Marbles.remove(key);
 				}
 			}
+			scoreAlice=spc%2==0?scoreAlice+spc:scoreAlice+spc+1;
 			otpt[i]=scoreAlice;
 		}
 		for(int ele : otpt) {
